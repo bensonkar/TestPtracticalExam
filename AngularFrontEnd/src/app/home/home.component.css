@@ -1,0 +1,16 @@
+
+.example-container {
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border: 1px solid #555;
+}
+
+.divlayout{
+  width: 40%;
+  background-color: #ccc;
+  margin-bottom: 2px;
+  padding: 5px 5px;
+  border: 1px solid rgb(156, 12, 137);
+}
+

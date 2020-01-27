@@ -1,0 +1,54 @@
+
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+
+
+        <ul  class="navbar-nav navbar-collapse justify-content-end"   >
+          <li><a *ngIf="!api.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+          <li><a class="nav-link" *ngIf="api.isUserLoggedIn()" routerLink="/account"> My Account</a></li>
+           <li><a class="nav-link" *ngIf="api.isUserLoggedIn()" (click)="onlogout()" routerLink="/login">Logout</a></li>
+
+
+      </ul>
+      </nav>
+    </header>
+
+    <br>
+    <br>
+
+    <div class="container" *ngIf="api.isUserLoggedIn()">
+      <button class="btn btn-primary" routerLink="/task">Add Task</button>
+    </div>
+
+    <br>
+    <br>
+
+
+
+
+    <div *ngIf="api.isUserLoggedIn()" >
+
+    <div style="display: flex">
+      <div cdkDropList  [cdkDropListData]="tasks"
+      [cdkDropListConnectedTo]="secondList" #firstList="cdkDropList"
+      (cdkDropListDropped)="onDropTask($event)" style="width: 30%">
+      <h2>Unfinished Tasks</h2>
+      <div  *ngFor="let task of tasks" class="pop" class="divlayout" cdkDrag>
+        <h2>{{task.title}}</h2>
+        {{task.description}}</div>
+      </div>
+      <div cdkDropList [cdkDropListData]="doneTasks"
+      [cdkDropListConnectedTo]="firstList" #secondList="cdkDropList"
+       (cdkDropListDropped)="onDropTask($event)" style="width: 30%">
+       <h2>Finished Tasks</h2>
+      <div  *ngFor="let task of doneTasks" class="pop" class="divlayout" cdkDrag>
+        <h2>{{task.title}}</h2>
+        {{task.description}}</div>
+      </div>
+      </div>
+
+
+    </div>
+
+

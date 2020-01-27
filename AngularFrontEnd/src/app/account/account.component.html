@@ -1,0 +1,20 @@
+<div class="container" *ngIf="currentUser">
+
+  <div class="form-group col-md-6">
+    <label for="fullname">Full Name: </label>
+    {{currentUser.fullname}}
+  </div>
+  <div class="form-group col-md-6">
+    <label for="username">username: </label>
+    {{currentUser.username}}
+  </div>
+  <div class="form-group col-md-6">
+    <label for="email">email: </label>
+
+    {{currentUser.email}}
+  </div>
+  <div>
+    <button class="btn btn-secondary" routerLink="/home">Back</button>
+  </div>
+
+</div>

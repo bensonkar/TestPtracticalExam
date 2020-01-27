@@ -1,0 +1,24 @@
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Login Form</h5>
+    <div class="alert alert-danger" *ngIf="invalidLogin">
+      invalid creditials
+    </div>
+    <form [formGroup]="LoginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" formControlName="username" name="username" placeholder="username">
+        <div class="text-danger" *ngIf="LoginForm.controls['username'].hasError('required') && LoginForm.controls['username'].touched">Username is required</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="password">
+        <div class="text-danger" *ngIf="LoginForm.controls['password'].hasError('required') && LoginForm.controls['password'].touched">Password is required</div>
+      </div>
+      <button class="btn btn-primary">Login</button>
+    </form>
+    <a routerLink="/forgotPassword">Forgot Password?</a>
+    <p>Don't have an account? <a routerLink="/register">Signup</a></p>
+  </div>
+</div>
